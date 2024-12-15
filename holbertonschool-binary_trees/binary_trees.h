@@ -1,31 +1,23 @@
 #ifndef BINARY_TREES_H
 #define BINARY_TREES_H
 
-#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-/**
- * struct binary_tree_s - Binary tree node
- *
- * @n: Integer stored in the node
- * @parent: Pointer to the parent node
- * @left: Pointer to the left child node
- * @right: Pointer to the right child node
- */
-struct binary_tree_s
+/* Binary Tree Structure */
+typedef struct binary_tree_s
 {
-    int n;
-    struct binary_tree_s *parent;
-    struct binary_tree_s *left;
-    struct binary_tree_s *right;
-};
+    int n;                         /* Node's value */
+    struct binary_tree_s *parent;  /* Pointer to the parent node */
+    struct binary_tree_s *left;    /* Pointer to the left child */
+    struct binary_tree_s *right;   /* Pointer to the right child */
+} binary_tree_t;
 
-typedef struct binary_tree_s binary_tree_t;
-
-/* Function Prototypes */
+/* Function prototypes */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
-
-/* Binary tree print function (declaration only) */
-void binary_tree_print(const binary_tree_t *tree);
+binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
+void binary_tree_print(const binary_tree_t *tree); /* Assuming this function is available */
+void binary_tree_free(binary_tree_t *tree); /* Function to free the tree (optional) */
 
 #endif /* BINARY_TREES_H */
 
